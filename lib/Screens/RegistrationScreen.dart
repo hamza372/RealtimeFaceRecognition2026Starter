@@ -130,40 +130,100 @@ class _RecognitionScreenState extends State<RegistrationScreen> {
   // showFaceRegistrationDialogue(img.Image croppedFace, Recognition recognition){
   //   showDialog(
   //     context: context,
-  //     builder: (ctx) => AlertDialog(
-  //       title: const Text("Face Registration",textAlign: TextAlign.center),alignment: Alignment.center,
-  //       content: SizedBox(
-  //         height: 340,
-  //         child: Column(
-  //           crossAxisAlignment: CrossAxisAlignment.center,
-  //           children: [
-  //             const SizedBox(height: 20,),
-  //             Image.memory(Uint8List.fromList(img.encodeBmp(croppedFace!)),width: 200,height: 200,),
-  //             SizedBox(
-  //               width: 200,
-  //               child: TextField(
-  //                   controller: textEditingController,
-  //                   decoration: const InputDecoration( fillColor: Colors.white, filled: true,hintText: "Enter Name")
+  //     builder: (ctx) => Dialog(
+  //       backgroundColor: Colors.transparent,
+  //       insetPadding: const EdgeInsets.symmetric(
+  //         horizontal: 20,
+  //         vertical: 60,
+  //       ),
+  //       child: ClipRRect(
+  //         borderRadius: BorderRadius.circular(20),
+  //         child: BackdropFilter(
+  //           filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+  //           child: Container(
+  //             padding: const EdgeInsets.all(20),
+  //             decoration: BoxDecoration(
+  //               color: Colors.white.withAlpha(30),
+  //               borderRadius: BorderRadius.circular(20),
+  //               border: Border.all(color: Colors.white.withAlpha(40)),
+  //             ),
+  //             child: SingleChildScrollView(
+  //               child: Column(
+  //                 mainAxisSize: MainAxisSize.min,
+  //                 children: [
+  //                   const Text(
+  //                     "Register Your Face",
+  //                     textAlign: TextAlign.center,
+  //                     style: TextStyle(
+  //                       fontSize: 20,
+  //                       color: Colors.white,
+  //                       fontWeight: FontWeight.bold,
+  //                     ),
+  //                   ),
+  //                   const SizedBox(height: 20),
+  //                   ClipRRect(
+  //                     borderRadius: BorderRadius.circular(100),
+  //                     child: Image.memory(
+  //                       Uint8List.fromList(img.encodeBmp(croppedFace)),
+  //                       width: 150,
+  //                       height: 150,
+  //                       fit: BoxFit.cover,
+  //                     ),
+  //                   ),
+  //                   const SizedBox(height: 20),
+  //                   TextField(
+  //                     controller: textEditingController,
+  //                     style: const TextStyle(color: Colors.white),
+  //                     decoration: InputDecoration(
+  //                       hintText: "Enter your name",
+  //                       hintStyle: const TextStyle(color: Colors.white70),
+  //                       filled: true,
+  //                       fillColor: Colors.white.withAlpha(80),
+  //                       border: OutlineInputBorder(
+  //                         borderRadius: BorderRadius.circular(12),
+  //                         borderSide: BorderSide.none,
+  //                       ),
+  //                     ),
+  //                   ),
+  //                   const SizedBox(height: 20),
+  //                   SizedBox(
+  //                     width: double.infinity,
+  //                     child: ElevatedButton.icon(
+  //                       onPressed: () {
+  //                         recognizer.registerFaceInDB(
+  //                           textEditingController.text.trim(),
+  //                           recognition.embeddings,
+  //                           Uint8List.fromList(img.encodeBmp(croppedFace!)),
+  //                         );
+  //                         Navigator.pop(context);
+  //                         Navigator.pop(context); // Close dialog
+  //                         ScaffoldMessenger.of(context).showSnackBar(
+  //                           const SnackBar(
+  //                             content: Text("Face Registered"),
+  //                           ),
+  //                         );
+  //                       },
+  //                       icon: const Icon(Icons.check),
+  //                       label: const Text("Register"),
+  //                       style: ElevatedButton.styleFrom(
+  //                         backgroundColor: Colors.deepPurple.shade300,
+  //                         foregroundColor: Colors.white,
+  //                         padding: const EdgeInsets.symmetric(vertical: 14),
+  //                         shape: RoundedRectangleBorder(
+  //                           borderRadius: BorderRadius.circular(12),
+  //                         ),
+  //                       ),
+  //                     ),
+  //                   ),
+  //                 ],
   //               ),
   //             ),
-  //             const SizedBox(height: 10,),
-  //             ElevatedButton(
-  //                 onPressed: () {
-  //                   recognizer.registerFaceInDB(textEditingController.text, recognition.embeddings,Uint8List.fromList(img.encodeBmp(croppedFace)));
-  //                   textEditingController.text = "";
-  //                   Navigator.pop(context);
-  //                   ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-  //                     content: Text("Face Registered"),
-  //                   ));
-  //                 },style: ElevatedButton.styleFrom(backgroundColor:Colors.blue,minimumSize: const Size(200,40)),
-  //                 child: const Text("Register"))
-  //           ],
+  //           ),
   //         ),
-  //       ),contentPadding: EdgeInsets.zero,
-  //     ),
+  //       ),
+  //     )
   //   );
   // }
-
 
   // //TODO convert CameraImage to InputImage
   final _orientations = {
